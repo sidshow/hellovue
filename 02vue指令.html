@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+    <div id="app">{{msg}}
+    </div>
+   
+    <script>
+         //mvvm model view viewmodel
+    new Vue({
+        el:"#app", //目的地
+        template:`<div>
+        <div v-html='msg2'></div>
+        <div v-if='isshow'>hahaha</div>
+        <div v-show='isshow'>hahaha</div>
+        <div v-if='Math.random() > 0.5'>此值大于0.5</div>
+        <div v-else>此值小于0.5</div>
+        <ul>
+        <li v-for='(item,index) in menuLists'><h3>{{item.id}}</h3><h5>{{item.name}}</h5></li></ul>
+        <ul><li v-for='(value,key) in object'>{{key}} == {{value}}</li></ul>
+        </div>`,
+        data:function(){
+            return{
+                msg:"指令系统",
+                msg2:"<h1>指令系统</h1>",
+                isshow:true,
+                menuLists:[
+                    {id:1,name:'egg',price:5},
+                    {id:2,name:'apple',price:6},
+                    {id:3,name:'orange',price:7}
+                ],
+                object:{
+                    name:'涂sir',
+                    age:18,
+                    fav:'sing'
+
+
+                }
+            }
+
+        }
+    });
+    </script>
+    
+</body>
+</html>
